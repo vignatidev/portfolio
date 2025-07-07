@@ -1,0 +1,100 @@
+@import '../styles/variables';
+
+.page_home {
+  max-width: 1160px;
+  height: 100%;
+  padding: 0 20px;
+  position: absolute;
+  inset: 0;
+  margin: auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  p {
+    color: $mainFontClr;
+  }
+
+  h2 {
+    color: $secondaryFontClr;
+    font-weight: 400;
+  }
+
+  .logo_img {
+    margin: 0.875rem 0 1.25rem 0;
+  }
+
+  .description {
+    margin-top: 4.125rem;
+    margin-right: 115px;
+
+    p {
+      margin-top: 0.875rem;
+    }
+  }
+}
+
+.gameboard_wrapper {
+  width: 468px;
+  max-height: 468px;
+  padding: 45px;
+  box-sizing: content-box;
+  border-radius: 8px;
+  border: 1px solid #0C1616;
+  border-top: 1px solid rgba(255, 255, 255, 0.20);
+  background: linear-gradient(125deg, rgba(23, 85, 83, 1) 0%, rgba(67, 217, 173, 0.13) 80%);
+}
+
+.board-wrapper {
+  width: 448px;
+  max-height: 448px;
+  background-color: rgba(1, 22, 39, 0.84);
+  padding: 10px;
+  box-sizing: content-box;
+  border-radius: 8px;
+  -webkit-box-shadow: inset 0px 0px 10px 1px rgba(0, 0, 0, 0.71);
+  -moz-box-shadow: inset 0px 0px 10px 1px rgba(0, 0, 0, 0.71);
+  box-shadow: inset 0px 0px 10px 1px rgba(0, 0, 0, 0.71);
+}
+
+@media screen and (max-height: 750px) {
+  .candy_related {
+    display: none;
+  }
+
+  .page_home {
+    width: fit-content;
+  }
+}
+
+@media screen and (max-width: 1118px) {
+  .candy_related {
+    display: none;
+  }
+
+  .page_home {
+    width: fit-content;
+  }
+}
+
+@media screen and (max-width: 498px) {
+  .logo_img {
+    height: 120px;
+    width: fit-content;
+  }
+
+  h2 {
+    font-size: 1.75rem;
+  }
+}
+
+@media screen and (max-width: 390px) {
+  .logo_img {
+    height: 108px;
+    width: fit-content;
+  }
+
+  h2 {
+    font-size: 1.5rem;
+  }
+}

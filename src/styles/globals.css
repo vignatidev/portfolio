@@ -1,0 +1,238 @@
+@import url("https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400;500;600;700&display=swap");
+:root {
+  --bodyClr: #010C15;
+  --mainClr: #011627;
+  --mainFontClr: #607B96;
+  --secondaryFontClr: #4D5BCE;
+  --thirdFontClr: #5565E8;
+  --hoverFontClr: white;
+  --strokeClr: #1E2D3D;
+  --accentClr1: #FEA55F;
+}
+
+.theme-01 {
+  --bodyClr: #d8edfe;
+  --mainClr: #eaf5fe;
+  --mainFontClr: #869b9f;
+  --secondaryFontClr: #313fb2;
+  --thirdFontClr: #5565e8;
+  --hoverFontClr: white;
+  --strokeClr: #c2d1e1;
+  --accentClr1: #a04701;
+}
+
+* {
+  box-sizing: border-box;
+  list-style: none;
+  text-decoration: none;
+  padding: 0;
+  margin: 0;
+  color: unset;
+}
+
+h1 {
+  font-size: 3.875rem;
+  font-weight: bold;
+}
+
+h2 {
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+.lable {
+  font-size: 1rem;
+}
+
+.code-snippet {
+  font-size: 0.875rem;
+}
+
+body {
+  font-size: 1rem;
+  font-family: "Fira Code", monospace;
+  color: #607B96;
+  width: 100vw;
+  height: 100vh;
+  padding: 2vw;
+  background-color: var(--bodyClr);
+}
+
+.flex {
+  display: flex;
+  align-items: center;
+}
+
+.page-wrapper {
+  width: 100%;
+  height: 100%;
+  background-color: #011627;
+  border-radius: 0.5rem;
+  border: 1px solid #1E2D3D;
+  position: relative;
+}
+
+.content-wrapper {
+  width: 100%;
+  height: calc(100% - 111px);
+  position: relative;
+}
+
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #607B96 transparent;
+}
+
+/* Works on Chrome, Edge, and Safari */
+*::-webkit-scrollbar {
+  width: 25px;
+}
+
+*::-webkit-scrollbar-track {
+  background: transparent;
+  border-left: 1px solid #1E2D3D;
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: #607B96;
+  border: 3px solid transparent;
+}
+
+.header {
+  display: flex;
+  font-size: 1rem;
+  padding-left: 1.375rem;
+  border-bottom: 1px solid #1E2D3D;
+  position: relative;
+}
+.header span {
+  min-width: 11.5rem;
+  padding: 1.125rem 0 1.125rem 0;
+}
+.header a {
+  padding: 1.125rem 2rem;
+  border-left: 1px solid #1E2D3D;
+}
+.header a:hover {
+  color: white;
+  box-shadow: inset 0px -3px 0px 0px #FEA55F;
+}
+.header #projects {
+  border-right: 1px solid #1E2D3D;
+}
+.header #contact {
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+
+.page-active {
+  color: white;
+  box-shadow: inset 0px -3px 0px 0px #FEA55F;
+}
+
+@media screen and (max-width: 837px) {
+  .header {
+    padding-left: 0;
+  }
+  .header span {
+    display: none;
+  }
+  .header .header-nav li:nth-child(1) a {
+    border-left: none;
+  }
+  .header .header-nav a {
+    padding: 1.125rem 2rem 1.125rem 2rem;
+    display: block;
+  }
+}
+@media screen and (max-width: 623px) {
+  .header {
+    padding-left: 0;
+  }
+  .header span {
+    display: none;
+  }
+  .header .header-nav a {
+    padding: 1.125rem 1.5rem 1.125rem 1.5rem;
+    display: block;
+  }
+}
+@media screen and (max-width: 557px) {
+  .header {
+    padding-left: 0;
+  }
+  .header span {
+    display: none;
+  }
+  .header .header-nav a {
+    padding: 1.125rem 1rem 1.125rem 1rem;
+    display: block;
+  }
+}
+@media screen and (max-width: 489px) {
+  .header {
+    padding-left: 1.375rem;
+  }
+  .header span {
+    display: block;
+  }
+  .header .header-nav a {
+    display: none;
+  }
+}
+.footer {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  border-top: 1px solid #1E2D3D;
+  position: absolute;
+  bottom: 0;
+}
+.footer span {
+  padding: 0 1.125rem 0 1.375rem;
+}
+.footer nav {
+  display: flex;
+  align-items: center;
+}
+.footer a {
+  padding: 0.875rem;
+  display: block;
+  border-left: 1px solid #1E2D3D;
+}
+.footer .instagram {
+  border-right: 1px solid #1E2D3D;
+}
+.footer .github {
+  position: absolute;
+  top: 0;
+  right: 0;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+.footer figure {
+  width: 24px;
+  height: 24px;
+}
+
+@media screen and (max-width: 565px) {
+  .footer span {
+    display: none;
+  }
+  .footer nav li:nth-child(1) a {
+    border-left: none;
+  }
+}
+@media screen and (max-width: 412px) {
+  .footer li:nth-child(1) a {
+    border: 1px solid #1E2D3D;
+    border-top: none;
+    border-left: none;
+    border-bottom: none;
+  }
+  .footer .un {
+    display: none;
+  }
+}/*# sourceMappingURL=globals.css.map */

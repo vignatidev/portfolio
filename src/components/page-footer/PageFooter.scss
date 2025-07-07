@@ -1,0 +1,76 @@
+@import '../../styles/variables';
+
+.footer {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  border-top: $stroke;
+  position: absolute;
+  bottom: 0;
+
+  span {
+    padding: 0 1.125rem 0 1.375rem;
+  }
+
+  nav {
+    display: flex;
+    align-items: center;
+  }
+
+  a {
+    padding: 0.875rem;
+    display: block;
+    border-left: $stroke;
+  }
+
+  .instagram {
+    border-right: $stroke;
+  }
+
+  .github {
+    position: absolute;
+    top: 0;
+    right: 0;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+  }
+
+  figure {
+    width: 24px;
+    height: 24px;
+  }
+}
+
+@media screen and (max-width: 565px) {
+  .footer {
+    span {
+      display: none;
+    }
+
+    nav {
+      li:nth-child(1) {
+        a {
+          border-left: none;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 412px) {
+  .footer {
+    li:nth-child(1) {
+      a {
+        border: $stroke;
+        border-top: none;
+        border-left: none;
+        border-bottom: none;
+      }
+    }
+
+    .un {
+      display: none;
+    }
+  }
+}
