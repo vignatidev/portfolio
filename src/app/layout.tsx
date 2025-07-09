@@ -30,9 +30,12 @@ export default function RootLayout({
         <link rel="icon" href="./favicon.ico" sizes="any" />
       </head>
       <body className={theme}>
+        <figure className="dark-light" onClick={toggleTheme}>
+              <IconGithub></IconGithub>
+        </figure>
         <div className="page-wrapper">
           <header className="header">
-            <span onClick={toggleTheme}>marco-vignati</span>
+            <span>marco-vignati</span>
             <nav className="flex header-nav">
               <li>
                 <Link className={pathname == "/" ? "page-active" : ""} href="/">

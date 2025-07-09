@@ -145,7 +145,7 @@ export default function GameBoard() {
 
     if (candyBeingReplacedId && validMove && (isARowOfThree || isARowOfFour || isAColumnOfFour || isAColumnOfThree)) {
       setCurrentCandyArrangement(newCandyArrangement)
-      setGameStarted(true) // O jogo começa no primeiro movimento válido
+      setGameStarted(true)
     }
 
     setCandyBeingDragged(null)
@@ -166,7 +166,6 @@ export default function GameBoard() {
       candiesRemoved += checkForRowOfThree(currentCandyArrangement)
 
       if (gameStarted && candiesRemoved > 0) {
-        // Só soma pontos depois que o jogo começou
         setScore((prevScore) => prevScore + candiesRemoved * 10)
       }
 

@@ -57,6 +57,16 @@
   box-shadow: inset 0px 0px 10px 1px rgba(0, 0, 0, 0.71);
 }
 
+.dark-light {
+  width: 24px;
+  height: 24px;
+  z-index: 100;
+  right: calc(($pagePadding + 1px) + 1.125rem);
+  bottom: calc(($pagePadding + 54px) + 1.125rem);
+  position: absolute;
+  cursor: pointer;
+}
+
 @media screen and (max-height: 750px) {
   .candy_related {
     display: none;
