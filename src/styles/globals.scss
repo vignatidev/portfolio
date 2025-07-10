@@ -4,23 +4,36 @@
 :root {
   --bodyClr: #010C15;
   --mainClr: #011627;
+  --secondaryClr: #011221;
+  --btnClr: #1C2B3A;
+  --btnFontClr: #C5D4E3;
   --mainFontClr: #607B96;
   --secondaryFontClr: #4D5BCE;
   --thirdFontClr: #5565E8;
-  --hoverFontClr: white;
+  --hoverFontClr: #FFFFFF;
   --strokeClr: #1E2D3D;
+  --outlineClr: #1E3448;
   --accentClr1: #FEA55F;
+
+  --stroke: 1px solid var(--strokeClr);
+  
 }
 
 .theme-01 {
   --bodyClr: #d8edfe;
   --mainClr: #eaf5fe;
+  --secondaryClr: #DEEFFE;
+  --btnClr: #C5D4E3;
+  --btnFontClr: #011221;
   --mainFontClr: #869b9f;
   --secondaryFontClr: #313fb2;
   --thirdFontClr: #5565e8;
-  --hoverFontClr: white;
+  --hoverFontClr: #000000;
   --strokeClr: #c2d1e1;
+  --outlineClr: #B7CDE1;
   --accentClr1: #a04701;
+
+  --stroke: 1px solid var(--strokeClr);
 }
 
 * {
@@ -53,7 +66,7 @@ h2 {
 body {
   font-size: 1rem;
   font-family: 'Fira Code', monospace;
-  color: $mainFontClr;
+  color: var(--mainFontClr);
   width: 100vw;
   height: 100vh;
   padding: $pagePadding;
@@ -68,9 +81,9 @@ body {
 .page-wrapper {
   width: 100%;
   height: 100%;
-  background-color: $mainClr;
+  background-color: var(--mainClr);
   border-radius: 0.5rem;
-  border: $stroke;
+  border: var(--stroke);
   position: relative;
 }
 
@@ -82,7 +95,7 @@ body {
 
 * {
   scrollbar-width: thin;
-  scrollbar-color: #607B96 transparent;
+  scrollbar-color: var(--mainFontClr) transparent;
 }
 
 /* Works on Chrome, Edge, and Safari */
@@ -92,11 +105,11 @@ body {
 
 *::-webkit-scrollbar-track {
   background: transparent;
-  border-left: $stroke;
+  border-left: var(--stroke);
 }
 
 *::-webkit-scrollbar-thumb {
-  background-color: #607B96;
+  background-color: var(--mainFontClr);
   border: 3px solid transparent;
 }
 
@@ -106,7 +119,7 @@ body {
   display: flex;
   font-size: 1rem;
   padding-left: 1.375rem;
-  border-bottom: $stroke;
+  border-bottom: var(--stroke);
   position: relative;
 
   span {
@@ -116,18 +129,18 @@ body {
 
   a {
     padding: 1.125rem 2rem;
-    border-left: $stroke;
+    border-left: var(--stroke);
 
     &:hover {
-      color: $hoverFontClr;
-      -webkit-box-shadow: inset 0px -3px 0px 0px $accentClr1;
-      -moz-box-shadow: inset 0px -3px 0px 0px $accentClr1;
-      box-shadow: inset 0px -3px 0px 0px $accentClr1;
+      color: var(--hoverFontClr);
+      -webkit-box-shadow: inset 0px -3px 0px 0px var(--accentClr1);
+      -moz-box-shadow: inset 0px -3px 0px 0px var(--accentClr1);
+      box-shadow: inset 0px -3px 0px 0px var(--accentClr1);
     }
   }
 
   #projects {
-    border-right: $stroke;
+    border-right: var(--stroke);
   }
 
   #contact {
@@ -138,10 +151,10 @@ body {
 }
 
 .page-active {
-  color: $hoverFontClr;
-  -webkit-box-shadow: inset 0px -3px 0px 0px $accentClr1;
-  -moz-box-shadow: inset 0px -3px 0px 0px $accentClr1;
-  box-shadow: inset 0px -3px 0px 0px $accentClr1;
+  color: var(--hoverFontClr);
+  -webkit-box-shadow: inset 0px -3px 0px 0px var(--accentClr1);
+  -moz-box-shadow: inset 0px -3px 0px 0px var(--accentClr1);
+  box-shadow: inset 0px -3px 0px 0px var(--accentClr1);
 }
 
 @media screen and (max-width: 837px) {
@@ -223,7 +236,7 @@ body {
   width: 100%;
   display: flex;
   align-items: center;
-  border-top: $stroke;
+  border-top: var(--stroke);
   position: absolute;
   bottom: 0;
 
@@ -239,11 +252,11 @@ body {
   a {
     padding: 0.875rem;
     display: block;
-    border-left: $stroke;
+    border-left: var(--stroke);
   }
 
   .instagram {
-    border-right: $stroke;
+    border-right: var(--stroke);
   }
 
   .github {
@@ -281,7 +294,7 @@ body {
   .footer {
     li:nth-child(1) {
       a {
-        border: $stroke;
+        border: var(--stroke);
         border-top: none;
         border-left: none;
         border-bottom: none;

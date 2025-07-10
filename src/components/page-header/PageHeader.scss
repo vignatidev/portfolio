@@ -4,7 +4,7 @@
   display: flex;
   font-size: 1rem;
   padding-left: 1.375rem;
-  border-bottom: $stroke;
+  border-bottom: var(--stroke);
   position: relative;
 
   span {
@@ -14,18 +14,18 @@
 
   a {
     padding: 1.125rem 2rem;
-    border-left: $stroke;
+    border-left: var(--stroke);
 
     &:hover {
-      color: $hoverFontClr;
-      -webkit-box-shadow: inset 0px -3px 0px 0px $accentClr1;
-      -moz-box-shadow: inset 0px -3px 0px 0px $accentClr1;
-      box-shadow: inset 0px -3px 0px 0px $accentClr1;
+      color: var(--hoverFontClr);
+      -webkit-box-shadow: inset 0px -3px 0px 0px var(--accentClr1);
+      -moz-box-shadow: inset 0px -3px 0px 0px var(--accentClr1);
+      box-shadow: inset 0px -3px 0px 0px var(--accentClr1);
     }
   }
 
   #projects {
-    border-right: $stroke;
+    border-right: var(--stroke);
   }
 
   #contact {
@@ -36,10 +36,10 @@
 }
 
 .page-active {
-  color: $hoverFontClr;
-  -webkit-box-shadow: inset 0px -3px 0px 0px $accentClr1;
-  -moz-box-shadow: inset 0px -3px 0px 0px $accentClr1;
-  box-shadow: inset 0px -3px 0px 0px $accentClr1;
+  color: var(--hoverFontClr);
+  -webkit-box-shadow: inset 0px -3px 0px 0px var(--accentClr1);
+  -moz-box-shadow: inset 0px -3px 0px 0px var(--accentClr1);
+  box-shadow: inset 0px -3px 0px 0px var(--accentClr1);
 }
 
 @media screen and (max-width: 837px) {

@@ -15,15 +15,15 @@
       width: 100%;
       margin-top: 0.625rem;
       margin-bottom: 1.5rem;
-      background-color: #011221;
-      border: $stroke;
+      background-color: var(--secondaryClr);
+      border: var(--stroke);
       border-radius: 0.5rem;
       padding: 0.625rem 0.938rem;
       font-family: 'Fira Code', monospace;
       resize: none;
       &:focus {
-        border: 1px solid #607B96;
-        outline: 2px solid #1E3448;
+        border: 1px solid var(--mainFontClr);
+        outline: 2px solid var(--outlineClr);
       }
     }
     .inputMessage {
@@ -32,7 +32,7 @@
     #sendBtn {
       padding: 0.625rem 0.875rem;
       border-radius: 0.5rem;
-      background-color: #1C2B3A;
+      background-color: var(--btnClr);
       border: none;
       font-family: 'Fira Code', monospace;
       color: #ffffff;

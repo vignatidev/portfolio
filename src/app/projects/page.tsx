@@ -8,7 +8,6 @@ import ProjectCard from './project-card';
 import { projects } from './projects';
 import Image from 'next/image';
 
-
 export default function ProjectsPage() {
   const [selectedFilters, setSelectedFilters] = useState<string[]>([]);
   const [filteredItems, setFilteredItems] = useState(projects);
@@ -54,7 +53,10 @@ export default function ProjectsPage() {
                 key={`filters-${idx}`}
                 id={category}
               ></button>
-              <label htmlFor={category}><Image src={`./icons/default/${category}.svg`} width={24} height={24} alt={category} /><div>{category}</div></label>
+              <label htmlFor={category}>
+                <Image src={`./icons/default/${category}.svg`} width={24} height={24} alt={category} />
+                <div>{category}</div>
+              </label>
             </span>
           ))}
         </div>

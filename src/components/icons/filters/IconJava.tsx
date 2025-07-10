@@ -1,6 +1,6 @@
 export default function IconJava() {
   return (
-    <svg fill="#607B96" version="1.1" width="24px"
+    <svg fill="var(--mainFontClr)" version="1.1" width="24px"
       height="24px" viewBox="0 0 512 512" enable-background="new 0 0 512 512">
 
       <g id="5151e0c8492e5103c096af88a51e8d81">

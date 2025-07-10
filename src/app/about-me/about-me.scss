@@ -17,13 +17,13 @@
 .about_aside {
   width: 207px;
   height: 100%;
-  border-right: $stroke;
+  border-right: var(--stroke);
 
   span {
     display: block;
     padding: 10px 15px;
-    color: #ffffff;
-    border-bottom: $stroke;
+    color: var(--hoverFontClr);
+    border-bottom: var(--stroke);
   }
 
   ul {
@@ -31,7 +31,7 @@
     flex-direction: column;
     gap: 10px;
     padding: 22px 17px;
-    border-bottom: $stroke;
+    border-bottom: var(--stroke);
 
     li {
       display: flex;

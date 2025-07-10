@@ -4,7 +4,7 @@
   width: 100%;
   display: flex;
   align-items: center;
-  border-top: $stroke;
+  border-top: var(--stroke);
   position: absolute;
   bottom: 0;
 
@@ -20,11 +20,15 @@
   a {
     padding: 0.875rem;
     display: block;
-    border-left: $stroke;
+    border-left: var(--stroke);
+  }
+
+  .linkedin {
+    border-right: var(--stroke);
   }
 
   .instagram {
-    border-right: $stroke;
+    border-right: var(--stroke);
   }
 
   .github {
@@ -62,7 +66,7 @@
   .footer {
     li:nth-child(1) {
       a {
-        border: $stroke;
+        border: var(--stroke);
         border-top: none;
         border-left: none;
         border-bottom: none;
