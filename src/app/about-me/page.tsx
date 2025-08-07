@@ -1,7 +1,16 @@
+'use client';
+
+import { useLanguage } from "@/context/LanguageContext";
+import { translations } from "@/i18n";
+import CodeBlock from "@/components/codeblock/CodeBlocks";
+
 export default function AboutMe() {
+
+  const { language } = useLanguage(); 
+  
   return (
     <p className="dfaasdasd">
-      Hello! My name is Marco, and I am a software development student with a passion for creating technological solutions.
+      <CodeBlock code={translations[language].sobre_min_index} />
     </p>
   )
 }

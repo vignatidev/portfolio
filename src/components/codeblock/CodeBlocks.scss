@@ -1,0 +1,29 @@
+.code-container {
+  display: flex;
+  font-family: monospace;
+  font-size: 14px;
+  padding: 1rem;
+  border-radius: 8px;
+  overflow-x: auto;
+}
+
+.line-numbers {
+  display: flex;
+  flex-direction: column;
+  text-align: right;
+  padding-right: 1rem;
+  user-select: none;
+  min-width: 2rem;
+  & span {
+    line-height: 1.5rem;
+    font-size: var(--codeSnippet);
+  }
+}
+
+.code-content {
+  white-space: pre-wrap;
+  word-break: break-word;
+  font-size: var(--codeSnippet);
+  line-height: 1.5rem;
+  flex: 1;
+}

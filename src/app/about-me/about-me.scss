@@ -3,9 +3,6 @@
 .text-wrapper {
   width: 480px;
   height: fit-content;
-  &::before {
-    content: '* ';
-  }
 }
 
 .about_page {
