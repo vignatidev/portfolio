@@ -10,7 +10,7 @@ export default function AboutMe() {
   
   return (
     <p className="dfaasdasd">
-      <CodeBlock code={translations[language].sobre_min_index} />
+      <CodeBlock code={translations[language].sobre_mim_index} />
     </p>
   )
 }

@@ -1,11 +1,16 @@
+'use client';
+
+import { useLanguage } from "@/context/LanguageContext";
+import { translations } from "@/i18n";
+import CodeBlock from "@/components/codeblock/CodeBlocks";
+
 export default function InterestsPage() {
+
+  const { language } = useLanguage(); 
+
   return (
     <>
-      Software Development:  I love the feeling of turning ideas into functional code and being able to create applications that make people's lives easier.<br></br><br></br>
-
-      Problem Solving: I view challenges as opportunities for personal and professional growth, always eager to learn and improve.<br></br><br></br>
-
-      Web Technologies: I have a strong interest in crafting modern, interactive web applications.
+      <CodeBlock code={translations[language].sobre_mim_interesses} />
     </>
   )
 }

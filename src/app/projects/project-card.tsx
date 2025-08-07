@@ -1,7 +1,16 @@
+'use client';
+
+import { useLanguage } from "@/context/LanguageContext";
+import { translations } from "@/i18n";
+import CodeBlock from "@/components/codeblock/CodeBlocks";
 import IconGithub from "@/components/icons/socials/IconGithub";
 import './page.scss'
 
 export default function ProjectCard(project: any) {
+
+  const { language } = useLanguage(); 
+  const lang = language.toString()
+
   return (
     <div className="project_wrapper">
       <p className="project_title"><strong>Project {project.data.id}</strong> // {project.data.title}</p>
@@ -19,7 +28,7 @@ export default function ProjectCard(project: any) {
           </div>
         </div>
         <div className="card_info">
-          <p>{project.data.description}</p>
+          <p>{lang === 'pt' ? project.data.descriptionpt : project.data.descriptionen}</p>
           <div className="flex info_btns">
             <a className="view_btn" target="_blank" href={project.data.view}>view-project</a>
             <a className="github_btn" target="_blank" href={project.data.github}><IconGithub /></a>

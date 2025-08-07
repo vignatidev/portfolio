@@ -1,5 +1,7 @@
 'use client'
 
+import { useLanguage } from "@/context/LanguageContext";
+import { translations } from "@/i18n";
 import { useState } from "react";
 import CodeBlock from '../../components/code-block/CodeBlock'
 
@@ -38,6 +40,8 @@ export default function ContactMe() {
 
   inputMessage = linhas.join("\n" + "                  ");
 
+  const { language } = useLanguage(); 
+
   const meuCodigo = `
     const button = document.querySelector('#sendBtn');
 
@@ -58,13 +62,13 @@ export default function ContactMe() {
     <main className="contact_page">
       <section className="contact_form">
         <div className="form">
-          <label htmlFor="inputName">_name: </label><br></br>
+          <label htmlFor="inputName">{translations[language].contact_me_name}: </label><br></br>
           <input className="inputName" type="text" onChange={(e) => setInputName(e.target.value)} /><br></br>
-          <label htmlFor="inputEmail">_email: </label><br></br>
+          <label htmlFor="inputEmail">{translations[language].contact_me_email}: </label><br></br>
           <input className="inputEmail" type="text" onChange={(e) => setInputEmail(e.target.value)} /><br></br>
-          <label htmlFor="inputMessage">_message: </label><br></br>
+          <label htmlFor="inputMessage">{translations[language].contact_me_message}: </label><br></br>
           <textarea className="inputMessage" onChange={(e) => setInputMessage(e.target.value)} /><br></br>
-          <button id="sendBtn">submit-message</button>
+          <button id="sendBtn">{translations[language].enviar_msg}</button>
         </div>
       </section>
       <div className="contact_stroke"></div>

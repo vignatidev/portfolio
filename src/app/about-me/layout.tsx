@@ -1,5 +1,8 @@
+'use client';
 import './about-me.scss';
 
+import { useLanguage } from "@/context/LanguageContext";
+import { translations } from "@/i18n";
 import Chevron from '@/components/icons/folders/Chevron';
 import Arrow from '@/components/icons/folders/Arrow';
 import Folder1 from '@/components/icons/folders/Folder';
@@ -12,14 +15,17 @@ export default function AboutMeLayout({
 }: {
   children: React.ReactNode
 }) {
+
+  const { language } = useLanguage(); 
+
   return (
     <main className='about_page'>
       <aside className='about_aside'>
-        <span><Arrow /> personal-info</span>
+        <span><Arrow /> {translations[language].informacao_pessoal}</span>
         <ul>
-          <li><Chevron /><div><Folder1 /><Link href={'/about-me/bio'}>bio</Link></div></li>
-          <li><Chevron /><div><Folder2 /><Link href={'/about-me/interests'}>interests</Link></div></li>
-          <li><Chevron /><div><Folder3 /><Link href={'/about-me/education'}>education</Link></div></li>
+          <li><Chevron /><div><Folder1 /><Link href={'/about-me/bio'}>{translations[language].bio}</Link></div></li>
+          <li><Chevron /><div><Folder2 /><Link href={'/about-me/interests'}>{translations[language].interesses}</Link></div></li>
+          <li><Chevron /><div><Folder3 /><Link href={'/about-me/education'}>{translations[language].educacao}</Link></div></li>
         </ul>
       </aside>
       <p className="text-wrapper">

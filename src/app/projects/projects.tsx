@@ -2,7 +2,8 @@ export const projects = [
   {
     id: "1",
     title: "_cms-api",
-    description: "API that serves as a content management system (CMS) Work in progress",
+    descriptionen: "API that serves as a content management system (CMS).",
+    descriptionpt: "API que funciona como um sistema de gerenciamento de conteúdo (CMS).",
     category: "Spring",
     tech: [
       {
@@ -12,7 +13,7 @@ export const projects = [
       },
       {
         stack: "spring",
-        alt: "String",
+        alt: "Spring",
         color: "#8BC34A"
       },
       {
@@ -27,7 +28,8 @@ export const projects = [
   {
     id: "2",
     title: "_angular-blog",
-    description: "A blog project created with Angular based on figma layout for DIO course",
+    descriptionen: "A blog project created with Angular based on Figma layout for DIO course.",
+    descriptionpt: "Projeto de blog criado com Angular com base em layout do Figma para o curso da DIO.",
     category: "Angular",
     tech: [
       {

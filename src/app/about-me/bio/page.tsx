@@ -10,7 +10,7 @@ export default function AboutMe() {
 
   return (
     <>
-      <CodeBlock code={translations[language].sobre_min_bio} />
+      <CodeBlock code={translations[language].sobre_mim_bio} />
     </>
   )
 }
