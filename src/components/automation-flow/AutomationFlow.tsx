@@ -7,18 +7,20 @@ import './AutomationFlow.scss';
 
 // ---------------------------------------------------------------------------
 // Geometry. Everything is laid out on a fixed logical stage (px) that is
-// scaled to the available width, so nodes, ports and curves always line up.
+// scaled to the width and height the layout gives us, so nodes, ports and
+// curves always line up. Sizes reach the stylesheet as CSS variables.
 // ---------------------------------------------------------------------------
 
-const STAGE_W = 856;
-const STAGE_H = 410;
-const PAD = 20;
+const STAGE_W = 896;
+const STAGE_H = 560;
+const PAD = 8;
+const HERO_V_MARGIN = 32;
 
-const NODE_W = 168;
-const HEAD_H = 52;
-const BODY_H = 54;
-const ROW_H = 28;
-const AI_ROW_H = 30;
+const NODE_W = 190;
+const HEAD_H = 60;
+const BODY_H = 75;
+const ROW_H = 34;
+const AI_ROW_H = 38;
 
 type NodeId = 'trigger' | 'ai' | 'auto' | 'human' | 'crm';
 type EdgeId = 'trigger-ai' | 'ai-auto' | 'ai-human' | 'auto-crm' | 'human-crm';
@@ -35,11 +37,11 @@ interface NodeDef {
 }
 
 const NODES: Record<NodeId, NodeDef> = {
-  trigger: { x: 0, y: 34, tone: 'green', icon: 'message', body: 'bubble', rows: 1 },
-  ai: { x: 216, y: 128, tone: 'purple', icon: 'spark', rows: 2 },
-  auto: { x: 432, y: 20, tone: 'blue', icon: 'send', body: 'bubble', rows: 1 },
-  human: { x: 432, y: 232, tone: 'orange', icon: 'user', body: 'status', rows: 1 },
-  crm: { x: 648, y: 220, tone: 'teal', icon: 'tag', body: 'tag', rows: 0 },
+  trigger: { x: 0, y: 65, tone: 'green', icon: 'message', body: 'bubble', rows: 1 },
+  ai: { x: 230, y: 187, tone: 'purple', icon: 'spark', rows: 2 },
+  auto: { x: 460, y: 8, tone: 'blue', icon: 'send', body: 'bubble', rows: 1 },
+  human: { x: 460, y: 367, tone: 'orange', icon: 'user', body: 'status', rows: 1 },
+  crm: { x: 690, y: 310, tone: 'teal', icon: 'tag', body: 'tag', rows: 0 },
 };
 
 const NODE_IDS = Object.keys(NODES) as NodeId[];
@@ -177,9 +179,19 @@ const nodeCopy = (t: Copy) => ({
   crm: { eyebrow: t.flow_crm_eyebrow, title: t.flow_crm_title, body: t.flow_crm_tag, rows: [] as string[] },
 });
 
+const stageStyle = (scale: number) =>
+  ({
+    width: STAGE_W,
+    height: STAGE_H,
+    transform: `scale(${scale})`,
+    '--af-node-w': `${NODE_W}px`,
+    '--af-head-h': `${HEAD_H}px`,
+    '--af-body-h': `${BODY_H}px`,
+  }) as CSSProperties;
+
 const cx = (...parts: (string | false | null | undefined)[]) => parts.filter(Boolean).join(' ');
 
-const MIN_WIDTH_QUERY = '(min-width: 1240px) and (min-height: 600px)';
+const MIN_WIDTH_QUERY = '(min-width: 1240px) and (min-height: 680px)';
 const REDUCED_MOTION_QUERY = '(prefers-reduced-motion: reduce)';
 
 export default function AutomationFlow() {
@@ -192,15 +204,23 @@ export default function AutomationFlow() {
   const [enabled, setEnabled] = useState(false);
   const [view, setView] = useState<View>(EMPTY);
 
-  // Fit the fixed stage to the width the layout gives us.
+  // Fit the fixed stage to the width and height the layout gives us.
   useEffect(() => {
-    const el = frameRef.current;
-    if (!el) return;
-    const observer = new ResizeObserver(([entry]) => {
-      const width = entry.contentRect.width;
-      if (width > 0) setScale(Math.min(1, width / STAGE_W));
-    });
-    observer.observe(el);
+    const frame = frameRef.current;
+    if (!frame) return;
+    const hero = frame.closest<HTMLElement>('.page_home');
+
+    const fit = () => {
+      const width = frame.clientWidth;
+      if (width <= 0) return;
+      const height = hero ? hero.clientHeight - HERO_V_MARGIN : Infinity;
+      setScale(Math.min(1, width / STAGE_W, height / STAGE_H));
+    };
+
+    const observer = new ResizeObserver(fit);
+    observer.observe(frame);
+    if (hero) observer.observe(hero);
+    fit();
     return () => observer.disconnect();
   }, []);
 
@@ -253,7 +273,7 @@ export default function AutomationFlow() {
   return (
     <div className={cx('af', view.leaving && 'is-leaving')} role="img" aria-label={t.flow_aria}>
       <div className="af-frame" ref={frameRef} style={{ height: STAGE_H * scale }}>
-        <div className="af-stage" style={{ transform: `scale(${scale})` }}>
+        <div className="af-stage" style={stageStyle(scale)}>
           <svg className="af-edges" width={STAGE_W} height={STAGE_H} viewBox={`0 0 ${STAGE_W} ${STAGE_H}`}>
             {EDGE_IDS.map((id) => (
               <path

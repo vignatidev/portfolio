@@ -1,9 +1,9 @@
 @import '../styles/variables';
 
 .page_home {
-  max-width: 1320px;
+  max-width: 1600px;
   height: 100%;
-  padding: 0 20px;
+  padding: 0 clamp(20px, 3vw, 48px);
   position: absolute;
   inset: 0;
   margin: auto;
@@ -27,8 +27,8 @@
   .hero_flow {
     flex: 1 1 0;
     min-width: 0;
-    max-width: 856px;
-    margin-left: 48px;
+    max-width: 896px;
+    margin-left: clamp(40px, calc(12.5vw - 96px), 128px);
   }
 
   .logo_img {
@@ -37,6 +37,7 @@
 
   .hero_role {
     font-size: 1.75rem;
+    margin-top: 1.50rem;
 
     span {
       display: block;
@@ -107,7 +108,7 @@
   }
 }
 
-@media screen and (max-height: 599px) {
+@media screen and (max-height: 679px) {
   .hero_flow {
     display: none;
   }
