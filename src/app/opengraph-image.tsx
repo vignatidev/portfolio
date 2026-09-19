@@ -1,6 +1,6 @@
 import { ImageResponse } from "next/server";
 
-export const alt = "Marco Vignati | Engenheiro de Software e Automação";
+export const alt = "Marco Vignati | Engenheiro de Software · Gestor de Automação";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
@@ -24,8 +24,8 @@ export default function OpengraphImage() {
         <div style={{ fontSize: 96, fontWeight: 700, color: "#FFFFFF", marginTop: 16 }}>
           Marco Vignati
         </div>
-        <div style={{ fontSize: 40, color: "#FEA55F", marginTop: 32 }}>
-          &gt; Engenheiro de Software · Automação
+        <div style={{ fontSize: 34, color: "#FEA55F", marginTop: 32 }}>
+          &gt; Engenheiro de Software · Gestor de Automação
         </div>
         <div style={{ fontSize: 28, marginTop: 48 }}>github.com/VignatiDev</div>
       </div>

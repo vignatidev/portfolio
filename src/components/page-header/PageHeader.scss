@@ -34,6 +34,7 @@
 
   .lang-btn {
     padding: 1.125rem 1.25rem;
+    white-space: nowrap;
     border: none;
     border-left: var(--stroke);
     background: none;
@@ -127,6 +128,7 @@
 
     > span {
       display: block;
+      min-width: 0;
     }
 
     .header-nav {

@@ -24,6 +24,50 @@
     margin: 0.875rem 0 1.25rem 0;
   }
 
+  .hero_role {
+    font-size: 1.75rem;
+
+    span {
+      display: block;
+    }
+  }
+
+  .hero_cursor::after {
+    content: '\25AE';
+    margin-left: 0.5rem;
+    color: var(--accentClr1);
+    animation: hero-blink 1s steps(1) infinite;
+  }
+
+  .home_description {
+    margin-top: 1.5rem;
+  }
+
+  .hero_cta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    margin-top: 1.5rem;
+
+    a {
+      padding: 0.625rem 0.875rem;
+      border-radius: 0.5rem;
+      border: var(--stroke);
+      background-color: var(--btnClr);
+      color: var(--btnFontClr);
+      font-size: 0.875rem;
+      transition: border-color 0.2s;
+
+      &:first-child {
+        border-color: var(--accentClr1);
+      }
+
+      &:hover {
+        border-color: var(--accentClr1);
+      }
+    }
+  }
+
   .description {
     margin-top: 4.125rem;
     margin-right: 115px;
@@ -59,6 +103,12 @@
   box-shadow: inset 0px 0px 10px 1px rgba(0, 0, 0, 0.71);
 }
 
+@keyframes hero-blink {
+  50% {
+    opacity: 0;
+  }
+}
+
 @media screen and (max-height: 750px) {
   .candy_related {
     display: none;
@@ -88,6 +138,14 @@
   h2 {
     font-size: 1.75rem;
   }
+
+  .page_home .hero_role {
+    font-size: 1.25rem;
+  }
+
+  .page_home .home_description p {
+    font-size: 0.85rem;
+  }
 }
 
 @media screen and (max-width: 390px) {
@@ -98,5 +156,21 @@
 
   h2 {
     font-size: 1.5rem;
+  }
+
+  .page_home .home_description p {
+    font-size: 0.8rem;
+  }
+}
+
+@media screen and (max-width: 380px) {
+  .page_home .home_description p {
+    font-size: 0.75rem;
+  }
+}
+
+@media screen and (max-width: 340px) {
+  .page_home .hero_role {
+    font-size: 1rem;
   }
 }

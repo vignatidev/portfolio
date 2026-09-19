@@ -12,12 +12,12 @@ const description =
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
-    default: "Marco Vignati | Engenheiro de Software e Automação",
+    default: "Marco Vignati | Engenheiro de Software · Gestor de Automação",
     template: "%s | Marco Vignati",
   },
   description,
   openGraph: {
-    title: "Marco Vignati | Engenheiro de Software e Automação",
+    title: "Marco Vignati | Engenheiro de Software · Gestor de Automação",
     description,
     type: "website",
     locale: "pt_BR",

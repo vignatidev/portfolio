@@ -2,7 +2,7 @@
 
 import { useLanguage } from "@/context/LanguageContext";
 import { translations } from "@/i18n";
-import GameBoard from '@/components/candy-crush/GameBoard';
+import Link from 'next/link';
 import './page.scss';
 
 import Logo from '@/components/icons/logo';
@@ -17,17 +17,19 @@ export default function Home() {
         <div>
           <p>{translations[language].ola_p1}</p>
           <Logo />
-          <h2 className='text-subheadline'>&gt; Full Stack developer</h2>
+          <h2 className='hero_role'>
+            <span>&gt; {translations[language].hero_role_2}</span>
+            <span className='hero_cursor'>&gt; {translations[language].hero_role_1}</span>
+          </h2>
         </div>
-        <div className="home_description candy_related">
-          <p className='lable'>{translations[language].ola_p2}</p>
-          <p className='lable'>{translations[language].ola_p3}</p>
-          <p className='code-snippet'>const githubLink = “<a href='https://github.com/VignatiDev/candy-crush' target="_blank">github.com/VignatiDev/candy-crush</a>”</p>
+        <div className="home_description">
+          <p className='lable'>{translations[language].hero_tagline_1}</p>
+          <p className='lable'>{translations[language].hero_tagline_2}</p>
+          <p className='lable'>{translations[language].hero_tagline_3}</p>
         </div>
-      </div>
-      <div className='gameboard_wrapper candy_related'>
-        <div className='board-wrapper'>
-          <GameBoard />
+        <div className="hero_cta">
+          <Link href="/contact-me">{translations[language].hero_cta_talk}</Link>
+          <Link href="/projects">{translations[language].hero_cta_projects}</Link>
         </div>
       </div>
     </section>
