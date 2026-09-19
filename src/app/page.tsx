@@ -3,6 +3,7 @@
 import { useLanguage } from "@/context/LanguageContext";
 import { translations } from "@/i18n";
 import Link from 'next/link';
+import AutomationFlow from '@/components/automation-flow/AutomationFlow';
 import './page.scss';
 
 import Logo from '@/components/icons/logo';
@@ -13,7 +14,7 @@ export default function Home() {
 
   return (
     <section className="page_home">
-      <div>
+      <div className="hero_text">
         <div>
           <p>{translations[language].ola_p1}</p>
           <Logo />
@@ -31,6 +32,9 @@ export default function Home() {
           <Link href="/contact-me">{translations[language].hero_cta_talk}</Link>
           <Link href="/projects">{translations[language].hero_cta_projects}</Link>
         </div>
+      </div>
+      <div className="hero_flow">
+        <AutomationFlow />
       </div>
     </section>
   )

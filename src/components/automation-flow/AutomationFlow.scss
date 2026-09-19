@@ -1,0 +1,271 @@
+.af {
+  width: 100%;
+}
+
+.af-frame {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  border: var(--stroke);
+  border-radius: 0.5rem;
+  background-color: var(--afCanvas);
+  background-image: radial-gradient(var(--afDot) 1px, transparent 1px);
+  background-size: 18px 18px;
+}
+
+.af-stage {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 856px;
+  height: 410px;
+  transform-origin: 0 0;
+}
+
+// <=== CONNECTIONS ===>
+
+.af-edges {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  overflow: visible;
+  pointer-events: none;
+}
+
+.af-edge {
+  fill: none;
+  stroke: var(--afLine);
+  stroke-width: 2;
+  stroke-dasharray: 1;
+  stroke-dashoffset: 1;
+
+  &.is-drawn {
+    stroke-dashoffset: 0;
+    transition: stroke-dashoffset 0.6s ease-out;
+  }
+}
+
+.af-packet {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 3;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: var(--accentClr1);
+  box-shadow: 0 0 0 4px color-mix(in srgb, var(--accentClr1) 28%, transparent), 0 0 14px var(--accentClr1);
+  opacity: 0;
+  pointer-events: none;
+  animation: af-travel 0.7s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+@keyframes af-travel {
+  0% {
+    offset-distance: 0%;
+    opacity: 0;
+  }
+
+  12% {
+    opacity: 1;
+  }
+
+  88% {
+    opacity: 1;
+  }
+
+  100% {
+    offset-distance: 100%;
+    opacity: 0;
+  }
+}
+
+// <=== NODES ===>
+
+.af-node {
+  --c: var(--afGreen);
+  position: absolute;
+  z-index: 1;
+  width: 168px;
+  border-radius: 10px;
+  background-color: var(--afCard);
+  box-shadow: 0 0 0 1px var(--afCardBorder), var(--afShadow);
+  color: var(--afText);
+  font-size: 11px;
+  line-height: 15px;
+  opacity: 0;
+  transform: translateY(10px) scale(0.98);
+  user-select: text;
+  cursor: default;
+
+  &.tone-green { --c: var(--afGreen); }
+  &.tone-purple { --c: var(--afPurple); }
+  &.tone-blue { --c: var(--afBlue); }
+  &.tone-orange { --c: var(--afOrange); }
+  &.tone-teal { --c: var(--afTeal); }
+
+  &.is-on {
+    opacity: 1;
+    transform: none;
+    transition: opacity 0.45s ease-out, transform 0.45s ease-out, box-shadow 0.3s ease-out;
+
+    &:hover {
+      box-shadow: 0 0 0 1px var(--afCardBorder), var(--afShadowHover);
+    }
+  }
+
+  &.is-active {
+    box-shadow: 0 0 0 2px var(--c), 0 0 18px color-mix(in srgb, var(--c) 35%, transparent), var(--afShadow);
+  }
+}
+
+.af-head {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  height: 52px;
+  padding: 0 10px;
+  border-radius: 10px 10px 0 0;
+  background-color: color-mix(in srgb, var(--c) 16%, var(--afCard));
+}
+
+.af-ico {
+  display: grid;
+  flex: none;
+  place-items: center;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background-color: var(--c);
+  color: var(--afIconInk);
+
+  svg {
+    width: 13px;
+    height: 13px;
+  }
+}
+
+.af-title {
+  min-width: 0;
+
+  small,
+  b {
+    display: block;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  small {
+    color: var(--afMuted);
+    font-size: 10px;
+    line-height: 13px;
+  }
+
+  b {
+    color: var(--afText);
+    font-size: 12px;
+    font-weight: 600;
+    line-height: 16px;
+  }
+}
+
+.af-body {
+  height: 54px;
+  padding: 6px 10px;
+}
+
+.af-bubble,
+.af-status,
+.af-tag {
+  overflow: hidden;
+  border-radius: 8px;
+  background-color: var(--afBubble);
+  color: var(--afText);
+}
+
+.af-bubble {
+  display: -webkit-box;
+  max-height: 42px;
+  padding: 6px 8px;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+}
+
+.af-status {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  height: 30px;
+  padding: 0 8px;
+  color: var(--afMuted);
+
+  i {
+    flex: none;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background-color: var(--c);
+  }
+}
+
+.af-tag {
+  display: inline-block;
+  padding: 4px 10px;
+  border-radius: 999px;
+  background-color: color-mix(in srgb, var(--c) 18%, var(--afCard));
+  font-weight: 600;
+}
+
+.af-row {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding-right: 14px;
+  border-top: 1px solid var(--afRowLine);
+  color: var(--afMuted);
+  font-size: 10.5px;
+}
+
+// <=== PORTS ===>
+
+.af-port {
+  position: absolute;
+  z-index: 2;
+  width: 12px;
+  height: 12px;
+  border: 2px solid var(--afPort);
+  border-radius: 50%;
+  background-color: var(--afCard);
+
+  &.in {
+    top: 20px;
+    left: -6px;
+  }
+
+  &.out {
+    top: 50%;
+    right: -6px;
+    margin-top: -6px;
+  }
+
+  &.tone-ok {
+    border-color: var(--afGreen);
+  }
+
+  &.tone-low {
+    border-color: var(--afRed);
+  }
+}
+
+// <=== FADE OUT ===>
+
+.af.is-leaving {
+  .af-node,
+  .af-edge,
+  .af-packet {
+    opacity: 0;
+    transition: opacity 0.5s ease-in;
+  }
+}

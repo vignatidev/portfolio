@@ -18,7 +18,27 @@
   --stroke: 1px solid var(--strokeClr);
 
   --codeSnippet: 0.876rem;
-  
+
+  // automation flow (home hero)
+  --afCanvas: #01111F;
+  --afDot: rgba(125, 155, 184, 0.16);
+  --afCard: #0B2236;
+  --afCardBorder: #1E3448;
+  --afBubble: #12304A;
+  --afRowLine: #16304A;
+  --afText: #E6EEF7;
+  --afMuted: #8FA9C2;
+  --afLine: #3B5670;
+  --afPort: #5C7893;
+  --afIconInk: #011627;
+  --afGreen: #4ADE80;
+  --afPurple: #A594FF;
+  --afBlue: #5EA8FF;
+  --afOrange: #FEA55F;
+  --afTeal: #2DD4BF;
+  --afRed: #F87171;
+  --afShadow: 0 6px 18px rgba(0, 0, 0, 0.35);
+  --afShadowHover: 0 18px 38px rgba(0, 0, 0, 0.55), 0 4px 10px rgba(0, 0, 0, 0.3);
 }
 
 .theme-01 {
@@ -36,6 +56,26 @@
   --accentClr1: #a04701;
 
   --stroke: 1px solid var(--strokeClr);
+
+  --afCanvas: #EEF4FA;
+  --afDot: rgba(40, 70, 100, 0.16);
+  --afCard: #FFFFFF;
+  --afCardBorder: #E5E7EB;
+  --afBubble: #F3F4F6;
+  --afRowLine: #EEF0F3;
+  --afText: #111827;
+  --afMuted: #6B7280;
+  --afLine: #A9B7C6;
+  --afPort: #9CA3AF;
+  --afIconInk: #FFFFFF;
+  --afGreen: #16A34A;
+  --afPurple: #7C3AED;
+  --afBlue: #2563EB;
+  --afOrange: #EA580C;
+  --afTeal: #0D9488;
+  --afRed: #DC2626;
+  --afShadow: 0 6px 18px rgba(3, 39, 72, 0.12), 0 2px 6px rgba(3, 39, 72, 0.06);
+  --afShadowHover: 0 22px 44px rgba(3, 39, 72, 0.22), 0 4px 10px rgba(3, 39, 72, 0.1);
 }
 
 * {
