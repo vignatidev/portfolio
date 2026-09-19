@@ -67,7 +67,7 @@ pre[class*="language-"] {
 .token.punctuation,
 .language-html .language-css .token.punctuation,
 .language-html .language-javascript .token.punctuation {
-	color: #607B96;
+	color: var(--mainFontClr);
 }
 
 .token.property,

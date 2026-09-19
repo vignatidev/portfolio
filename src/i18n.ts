@@ -1,9 +1,9 @@
 export const translations = {
   pt: {
     ola: "_ola",
-    ola_p1: "Ola! Eu sou",
-    ola_p2: "// combine tres para marcar pontos",
-    ola_p3: "// voce também pode ver isso na minha página do Github",
+    ola_p1: "Olá! Eu sou",
+    ola_p2: "// combine três para marcar pontos",
+    ola_p3: "// você também pode ver isso na minha página do Github",
     sobre_mim: "_sobre-mim",
     sobre_mim_index: "Olá! Meu nome é Marco e sou estudante de desenvolvimento de software com paixão por criar soluções tecnológicas.",
     sobre_mim_bio: "Desde jovem, sempre fui fascinado pelo mundo da tecnologia e seu impacto na vida das pessoas. Escolher o curso de Engenharia de Software foi uma decisão natural, pois me permite explorar e aprimorar minhas habilidades em programação, análise de sistemas e resolução de problemas complexos.\n \nAtualmente, estou trabalhando com meus pais no negócio deles relacionado à alimentação, mas estou em busca de outras oportunidades. Acredito que estou pronto para enfrentar novos desafios e, com isso, crescer ainda mais junto com eles.\n \nMeu objetivo é me tornar um profissional qualificado na área de tecnologia e contribuir para a criação de soluções inovadoras por meio do desenvolvimento de software.",
@@ -17,8 +17,8 @@ export const translations = {
     contact_me: "_contato",
     contact_me_name: "_nome",
     contact_me_email: "_email",
-    contact_me_message: "_menssagem",
-    enviar_msg: "enviar-menssagem",
+    contact_me_message: "_mensagem",
+    enviar_msg: "enviar-mensagem",
     me_encontre: "me encontre em:",
   },
   en: {
@@ -36,7 +36,7 @@ export const translations = {
     interesses: "interests",
     educacao: "education",
     projects: "_projects",
-    contact_me: "_contac-me",
+    contact_me: "_contact-me",
     contact_me_name: "_name",
     contact_me_email: "_email",
     contact_me_message: "_message",
