@@ -26,8 +26,13 @@ const CodeBlock: React.FC<CodeBlockProps> = ({ code }) => {
 
     calculateLines();
 
-    window.addEventListener('resize', calculateLines);
-    return () => window.removeEventListener('resize', calculateLines);
+    // The text reflows when the web font loads or the box is resized, so
+    // follow the element instead of counting once on mount.
+    const observer = new ResizeObserver(calculateLines);
+    if (preRef.current) observer.observe(preRef.current);
+    document.fonts?.ready.then(calculateLines);
+
+    return () => observer.disconnect();
   }, [code]);
 
   return (

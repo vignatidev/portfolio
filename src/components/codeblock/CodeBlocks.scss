@@ -21,6 +21,9 @@
 }
 
 .code-content {
+  // Size to the text itself: stretching to the line-number column made the
+  // count circular, so a too-high first count could never come back down.
+  align-self: flex-start;
   white-space: pre-wrap;
   word-break: break-word;
   font-size: var(--codeSnippet);
