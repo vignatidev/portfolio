@@ -168,16 +168,16 @@
   padding: 6px 12px;
 }
 
-.af-bubble,
-.af-status,
-.af-tag {
+.af .af-bubble,
+.af .af-status,
+.af .af-tag {
   overflow: hidden;
   border-radius: 9px;
   background-color: var(--afBubble);
   color: var(--afText);
 }
 
-.af-bubble {
+.af .af-bubble {
   display: -webkit-box;
   max-height: 63px;
   padding: 6px 9px;
@@ -185,7 +185,18 @@
   -webkit-line-clamp: 3;
 }
 
-.af-status {
+// The trigger text fades out, changes while invisible, then fades back in.
+// A transition driven by state: a CSS animation on this text (or on the
+// bubble, which clips with line-clamp) left it painted dim in Chrome.
+.af-swap {
+  transition: opacity 0.25s ease-out;
+
+  &.is-hidden {
+    opacity: 0;
+  }
+}
+
+.af .af-status {
   display: flex;
   align-items: center;
   gap: 7px;
@@ -202,7 +213,7 @@
   }
 }
 
-.af-tag {
+.af .af-tag {
   display: inline-block;
   padding: 5px 12px;
   border-radius: 999px;

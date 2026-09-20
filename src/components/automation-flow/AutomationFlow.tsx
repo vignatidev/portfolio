@@ -92,10 +92,14 @@ interface View {
   active: NodeId | null;
   packet: { edge: EdgeId; key: number } | null;
   leaving: boolean;
+  /** Which message the trigger card shows: 1 is routine, 2 needs a person. */
+  message: 1 | 2;
+  /** Fades the trigger text out so it can change while invisible. */
+  textHidden: boolean;
 }
 
-const EMPTY: View = { nodes: [], edges: [], active: null, packet: null, leaving: false };
-const FULL: View = { nodes: NODE_IDS, edges: EDGE_IDS, active: null, packet: null, leaving: false };
+const EMPTY: View = { nodes: [], edges: [], active: null, packet: null, leaving: false, message: 1, textHidden: false };
+const FULL: View = { nodes: NODE_IDS, edges: EDGE_IDS, active: null, packet: null, leaving: false, message: 1, textHidden: false };
 
 let packetKey = 0;
 
@@ -103,6 +107,8 @@ const showNode = (id: NodeId) => (v: View): View => ({ ...v, nodes: [...v.nodes,
 const drawEdge = (id: EdgeId) => (v: View): View => ({ ...v, edges: [...v.edges, id] });
 const activate = (id: NodeId) => (v: View): View => ({ ...v, active: id, packet: null });
 const send = (edge: EdgeId) => (v: View): View => ({ ...v, packet: { edge, key: ++packetKey } });
+const hideText = (v: View): View => ({ ...v, textHidden: true });
+const showMessage = (message: 1 | 2) => (v: View): View => ({ ...v, message, textHidden: false });
 const leave = (v: View): View => ({ ...v, active: null, packet: null, leaving: true });
 const reset = (): View => EMPTY;
 
@@ -125,7 +131,9 @@ const SCRIPT: [number, (v: View) => View][] = [
   [6100, activate('auto')],
   [6500, send('auto-crm')],
   [7200, activate('crm')],
-  // message 2: low confidence, handed to a person
+  // message 2: a sensitive case, low confidence, handed to a person
+  [7500, hideText],
+  [7800, showMessage(2)],
   [8000, activate('trigger')],
   [8400, send('trigger-ai')],
   [9100, activate('ai')],
@@ -171,8 +179,8 @@ const ICONS: Record<NodeDef['icon'], ReactNode> = {
 
 type Copy = (typeof translations)['pt'];
 
-const nodeCopy = (t: Copy) => ({
-  trigger: { eyebrow: t.flow_trigger_eyebrow, title: t.flow_trigger_title, body: t.flow_trigger_body, rows: [t.flow_next] },
+const nodeCopy = (t: Copy, message: 1 | 2) => ({
+  trigger: { eyebrow: t.flow_trigger_eyebrow, title: t.flow_trigger_title, body: message === 1 ? t.flow_trigger_body_1 : t.flow_trigger_body_2, rows: [t.flow_next] },
   ai: { eyebrow: t.flow_ai_eyebrow, title: t.flow_ai_title, body: '', rows: [t.flow_ai_ok, t.flow_ai_low] },
   auto: { eyebrow: t.flow_auto_eyebrow, title: t.flow_auto_title, body: t.flow_auto_body, rows: [t.flow_next] },
   human: { eyebrow: t.flow_human_eyebrow, title: t.flow_human_title, body: t.flow_human_body, rows: [t.flow_next] },
@@ -197,12 +205,12 @@ const REDUCED_MOTION_QUERY = '(prefers-reduced-motion: reduce)';
 export default function AutomationFlow() {
   const { language } = useLanguage();
   const t = translations[language];
-  const copy = nodeCopy(t);
+  const [view, setView] = useState<View>(EMPTY);
+  const copy = nodeCopy(t, view.message);
 
   const frameRef = useRef<HTMLDivElement>(null);
   const [scale, setScale] = useState(1);
   const [enabled, setEnabled] = useState(false);
-  const [view, setView] = useState<View>(EMPTY);
 
   // Fit the fixed stage to the width and height the layout gives us.
   useEffect(() => {
@@ -258,7 +266,13 @@ export default function AutomationFlow() {
     if (!kind) return null;
     return (
       <div className="af-body">
-        {kind === 'bubble' && <p className="af-bubble">{text}</p>}
+        {kind === 'bubble' && (
+          <p className="af-bubble">
+            {id === 'trigger'
+              ? <span className={cx('af-swap', view.textHidden && 'is-hidden')}>{text}</span>
+              : text}
+          </p>
+        )}
         {kind === 'status' && (
           <p className="af-status">
             <i />
