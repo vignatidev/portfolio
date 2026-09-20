@@ -56,6 +56,12 @@
   #contact {
     border-right: none;
   }
+
+  // Mobile menu: hidden on wide screens, see the 489px breakpoint below.
+  .menu-toggle,
+  .mobile-menu {
+    display: none;
+  }
 }
 
 .page-active {
@@ -65,7 +71,9 @@
   box-shadow: inset 0px -3px 0px 0px var(--accentClr1);
 }
 
-@media screen and (max-width: 837px) {
+// The language tab plus four links need about 920px next to the name, and
+// about 760px without it; below that the links move into the mobile menu.
+@media screen and (max-width: 920px) {
   .header {
     padding-left: 0;
 
@@ -81,48 +89,14 @@
       }
 
       a {
-        padding: 1.125rem 2rem 1.125rem 2rem;
         display: block;
+        padding: 1.125rem 1.5rem;
       }
     }
   }
 }
 
-@media screen and (max-width: 623px) {
-  .header {
-    padding-left: 0;
-
-    > span {
-      display: none;
-    }
-
-    .header-nav {
-      a {
-        padding: 1.125rem 1.5rem 1.125rem 1.5rem;
-        display: block;
-      }
-    }
-  }
-}
-
-@media screen and (max-width: 557px) {
-  .header {
-    padding-left: 0;
-
-    > span {
-      display: none;
-    }
-
-    .header-nav {
-      a {
-        padding: 1.125rem 1rem 1.125rem 1rem;
-        display: block;
-      }
-    }
-  }
-}
-
-@media screen and (max-width: 489px) {
+@media screen and (max-width: 760px) {
   .header {
     padding-left: 1.375rem;
 
@@ -135,6 +109,67 @@
       a {
         display: none;
       }
+    }
+
+    .menu-toggle {
+      display: flex;
+      align-items: center;
+      padding: 0 1.125rem;
+      border: none;
+      border-left: var(--stroke);
+      background: none;
+      color: var(--mainFontClr);
+      cursor: pointer;
+
+      &:hover,
+      &[aria-expanded='true'] {
+        color: var(--hoverFontClr);
+      }
+    }
+
+    .mobile-menu {
+      position: absolute;
+      top: 100%;
+      right: 0;
+      left: 0;
+      z-index: 50;
+      display: none;
+      flex-direction: column;
+      border-bottom: var(--stroke);
+      background-color: var(--mainClr);
+
+      &.is-open {
+        display: flex;
+      }
+
+      a {
+        display: block;
+        padding: 1rem 1.375rem;
+        border-top: var(--stroke);
+        border-left: none;
+        box-shadow: none;
+
+        &:hover,
+        &.page-active {
+          color: var(--hoverFontClr);
+          box-shadow: inset 3px 0 0 0 var(--accentClr1);
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 360px) {
+  .header {
+    padding-left: 1rem;
+
+    .lang-btn {
+      padding-right: 0.875rem;
+      padding-left: 0.875rem;
+    }
+
+    .menu-toggle {
+      padding: 0 0.875rem;
     }
   }
 }

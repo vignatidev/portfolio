@@ -1,6 +1,8 @@
 export const translations = {
   pt: {
     ola: "_ola",
+    menu_open: "Abrir menu",
+    menu_close: "Fechar menu",
     ola_p1: "Olá! Eu sou",
     hero_role_1: "Engenheiro de Software",
     hero_role_2: "Gestor de Automação",
@@ -47,6 +49,8 @@ export const translations = {
   },
   en: {
     ola: "_hello",
+    menu_open: "Open menu",
+    menu_close: "Close menu",
     ola_p1: "Hi all! I am",
     hero_role_1: "Software Engineer",
     hero_role_2: "Automation Manager",
