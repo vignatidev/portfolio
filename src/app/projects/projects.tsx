@@ -1,10 +1,16 @@
+export type ProjectType = 'automation' | 'backend' | 'frontend' | 'ai';
+
+// Order shown in the filter list. Automation comes first on purpose: it is
+// the positioning of the portfolio, even while it has no project yet.
+export const PROJECT_TYPES: ProjectType[] = ['automation', 'backend', 'frontend', 'ai'];
+
 export const projects = [
   {
     id: "1",
     title: "_cms-api",
     descriptionen: "API that serves as a content management system (CMS).",
     descriptionpt: "API que funciona como um sistema de gerenciamento de conteúdo (CMS).",
-    category: "Spring",
+    types: ["backend"] as ProjectType[],
     tech: [
       {
         stack: "java",
@@ -30,7 +36,7 @@ export const projects = [
     title: "_angular-blog",
     descriptionen: "A blog project created with Angular based on Figma layout for DIO course.",
     descriptionpt: "Projeto de blog criado com Angular com base em layout do Figma para o curso da DIO.",
-    category: "Angular",
+    types: ["frontend"] as ProjectType[],
     tech: [
       {
         stack: "angular",
