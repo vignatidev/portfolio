@@ -114,9 +114,9 @@
   }
 }
 
-section {
+.projects_layout > section {
   width: 100%;
-  overflow-x: scroll;
+  overflow-x: auto;
 }
 
 .projects_grid {
