@@ -17,18 +17,16 @@
     align-items: center;
   }
 
+  li:nth-last-child(1) {
+    a {
+      border-right: var(--stroke);
+    }
+  }
+
   a {
     padding: 0.875rem;
     display: block;
     border-left: var(--stroke);
-  }
-
-  .linkedin {
-    border-right: var(--stroke);
-  }
-
-  .instagram {
-    border-right: var(--stroke);
   }
 
   .github {
