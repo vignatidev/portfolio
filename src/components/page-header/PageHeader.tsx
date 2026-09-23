@@ -7,6 +7,7 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { useLanguage } from "@/context/LanguageContext";
 import { translations } from "@/i18n";
+import ThemeToggle from '@/components/theme-toggle/ThemeToggle';
 
 const NAV = [
   { href: '/', label: 'ola' },
@@ -44,34 +45,15 @@ export default function PageHeader() {
     return () => document.removeEventListener('keydown', onKeyDown);
   }, [menuOpen]);
 
-  const [projectsLinks, contactLink] = [NAV.slice(0, 3), NAV[3]];
-
-  // Decorative "file path" that fills the empty stretch of the header.
-  const crumb = (() => {
-    const [root, sub] = pathname.split('/').filter(Boolean);
-    const pages: Record<string, string> = {
-      '': t.ola, 'about-me': t.sobre_mim, projects: t.projects, 'contact-me': t.contact_me,
-    };
-    const subs: Record<string, string> = {
-      bio: t.bio, stack: t.stack, education: t.educacao, interests: t.interesses,
-    };
-    const page = pages[root ?? ''];
-    if (!page) return null;
-    const parts = ['src', 'pages', page.replace(/^_/, ''), ...(sub && subs[sub] ? [subs[sub]] : [])];
-    // A file name should not carry accents (educação -> educacao).
-    return parts.join(' / ').normalize('NFD').replace(/[\u0300-\u036f]/g, '') + '.tsx';
-  })();
-
   return (
     <header className="header">
       <span>marco-vignati</span>
       <nav className="flex header-nav">
-        {projectsLinks.map((item) => (
+        {NAV.map((item) => (
           <li key={item.href}>
             <Link className={linkClass(item.href)} href={item.href} id={'id' in item ? item.id : undefined}>{t[item.label]}</Link>
           </li>
         ))}
-        {crumb && <li className="crumb" aria-hidden="true">{crumb}</li>}
         <li className="lang-item">
           <button
             type="button"
@@ -84,8 +66,8 @@ export default function PageHeader() {
             <span className={language === "en" ? "lang-active" : ""}>EN</span>
           </button>
         </li>
-        <li>
-          <Link className={linkClass(contactLink.href)} href={contactLink.href} id={contactLink.id}>{t[contactLink.label]}</Link>
+        <li className="theme-item">
+          <ThemeToggle />
         </li>
       </nav>
 

@@ -7,6 +7,10 @@
   border-bottom: var(--stroke);
   position: relative;
 
+  #contact {
+    border-right: var(--stroke);
+  }
+
   > span {
     min-width: 11.5rem;
     padding: 1.125rem 0 1.125rem 0;
@@ -32,15 +36,6 @@
     margin-left: auto;
   }
 
-  // Only when there is room for it next to the links and the language tab.
-  .crumb {
-    display: none;
-    padding-left: 1.5rem;
-    color: var(--mainFontClr);
-    font-size: 0.75rem;
-    white-space: nowrap;
-  }
-
   .lang-btn {
     padding: 1.125rem 1.25rem;
     white-space: nowrap;
@@ -62,8 +57,31 @@
     }
   }
 
-  #contact {
-    border-right: none;
+  .dark-light {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1.125rem 1.375rem;
+    border: none;
+    border-left: var(--stroke);
+    background: none;
+    color: var(--mainFontClr);
+    cursor: pointer;
+
+    svg {
+      width: 20px;
+      height: 20px;
+      display: block;
+      transition: transform 0.4s;
+    }
+
+    &:hover {
+      color: var(--hoverFontClr);
+
+      svg {
+        transform: rotate(20deg);
+      }
+    }
   }
 
   // Mobile menu: hidden on wide screens, see the 489px breakpoint below.
@@ -168,24 +186,26 @@
   }
 }
 
-@media screen and (max-width: 360px) {
+// Very narrow phones: the name plus the hamburger, language and theme
+// buttons no longer fit on one line, so tighten padding and shrink the
+// name instead of letting it wrap and double the header's height.
+@media screen and (max-width: 420px) {
   .header {
-    padding-left: 1rem;
+    padding-left: 0.5rem;
 
-    .lang-btn {
-      padding-right: 0.875rem;
-      padding-left: 0.875rem;
+    > span {
+      font-size: 0.9rem;
+    }
+
+    .lang-btn,
+    .dark-light {
+      padding-left: 0.5rem;
+      padding-right: 0.5rem;
     }
 
     .menu-toggle {
-      padding: 0 0.875rem;
+      padding: 0 0.5rem;
     }
-  }
-}
-
-@media screen and (min-width: 1281px) {
-  .header .crumb {
-    display: block;
   }
 }
 

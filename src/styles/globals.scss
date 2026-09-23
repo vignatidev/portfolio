@@ -132,32 +132,6 @@ body {
   outline-offset: 2px;
 }
 
-// <=== THEME TOGGLE ===>
-
-.dark-light {
-  width: 24px;
-  height: 24px;
-  z-index: 100;
-  right: calc(($pagePadding + 1px) + 1.125rem);
-  bottom: calc(($pagePadding + 54px) + 1.125rem);
-  position: absolute;
-  padding: 0;
-  border: none;
-  background: none;
-  cursor: pointer;
-
-  svg {
-    width: 100%;
-    height: 100%;
-    display: block;
-    transition: transform 0.4s;
-  }
-
-  &:hover svg {
-    transform: rotate(20deg);
-  }
-}
-
 .flex {
   display: flex;
   align-items: center;
