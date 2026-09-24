@@ -17,7 +17,7 @@ export default function PageFooter() {
       <span>{translations[language].me_encontre}</span>
       <nav>
         <li><a className="linkedin" href="https://www.linkedin.com/in/marco-vignati-330505368/" target='blank'><IconLinkedin /></a></li>
-        <li><a className="github" href="https://github.com/VignatiDev" target='blank'><IconGithub />@vignatidev<p></p></a></li>
+        <li><a className="github" href="https://github.com/VignatiDev" target='blank'><IconGithub /><p>@vignatidev</p></a></li>
         <li><a className="instagram" href="https://www.instagram.com/vignati.dev" target='blank'><IconInstagram /><p></p></a></li>
         <li><a className="discord" href="" target='blank'><IconDiscord /><p></p></a></li>
       </nav>
